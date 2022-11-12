@@ -1,0 +1,515 @@
+<div id="loader">
+    <div class="loader-rela">
+        <img src="/image/kloader.png" class="pinwheel" alt="pinwheel">
+        <img src="/image/103.gif" class="loading" alt="loading">
+    </div>
+</div>
+<!-- # header-->
+<header id="header">
+    <!-- Nav top -->
+    <div class="header-nav-top d-none d-xl-block">
+        <div class="container">
+            <div class="row">
+                <div class="section-left col-lg-6">
+                    <div class="nav-top-section">
+                        <div class="dropdown-main" data-active="#select-language">
+                            <div class="dropdown-label hover-green">
+                                <img src="/image/img_language/1.jpg" alt="English" />
+                                <span> English</span>
+                                <i class="fas fa-angle-down
+                                            hover-green"></i>
+                            </div>
+                            <div class="dropdown-menu" id="select-language">
+                                <ul>
+                                    <li class="hover-green">
+                                        <img src="/image/img_language/1.jpg" alt="English" />
+                                        English
+                                    </li>
+                                    <li class="hover-green">
+                                        <img src="/image/img_language/3.jpg" alt="Français" />
+                                        Français
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="nav-top-section">
+                        <div class="dropdown-main" data-active="#select-money">
+                            <div class="dropdown-label hover-green">
+                                <span> USD $</span>
+                                <i class="fas fa-angle-down
+                                            hover-green"></i>
+                            </div>
+                            <div class="dropdown-menu" id="select-money">
+                                <ul>
+                                    <li class="hover-green">EUR €</li>
+                                    <li class="hover-green">USD $</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="section-right col-lg-6">
+                    <div class="nav-top-section">
+                        <a href="mailto:#" class="hover-green">
+                            <i class="far fa-envelope"></i>
+                            info.haihuynh@gmail.com
+                        </a>
+                    </div>
+                    <div class="nav-top-section">
+                        <a href="#" class="hover-green">
+                            <i class="fas fa-map-marker-alt"></i> Store
+                            Locator
+                        </a>
+                    </div>
+                    {{#if auth}}
+                    <div class="nav-top-section">
+                        <div class="dropdown-main" data-toggle="modal" data-active="#select-account">
+                            <div class="dropdown-label hover-green">
+                                <i class="far fa-user"></i>
+                                <span>Profile</span>
+                                <i class="fas fa-angle-down
+                                            hover-green"></i>
+                            </div>
+                            <div id="select-account" class="dropdown-menu">
+                                <ul>
+                                    {{#if role}}
+                                    {{else}}
+                                    <li class="hover-green"><a href="/users/my-products">My products</a></li>
+                                    {{/if}}
+                                    <li class="hover-green"><a href="/users/change-password">Change password</a></li>
+                                    <li class="hover-green"><a href="/users/info">Information</a></li>
+                                    <li class="hover-green"><a href="/users/logout">Log out</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    {{else }}
+                    <div class="nav-top-section">
+                        <div class="dropdown-main" data-toggle="modal" data-active="#select-account">
+                            <div class="dropdown-label hover-green">
+                                <i class="far fa-user"></i>
+                                <span>My Account</span>
+                                <i class="fas fa-angle-down
+                                                hover-green"></i>
+                            </div>
+                            <div id="select-account" class="dropdown-menu">
+                                <ul>
+                                    <li class="hover-green"><a href="/users/login">Sign in</a></li>
+                                    <li class="hover-green"><a href="/users/register">Register</a></li>
+                                    <li class="hover-green"><a href="/checkout/get-checkout">Check out</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    {{/if}}
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Nav bottom -->
+    <nav class="nav-bottom">
+        <div class="container">
+            <div class="row justify-content-md-center">
+                <div class="mobile-nav col-3 d-block d-xl-none">
+                    <div class="menu-icon">
+                        <i class="fas fa-bars"></i>
+                    </div>
+                    <div class="menu-mobile">
+                        <div class="top-nav-mobile">
+                            <div class="section-top text-center">
+                                <a href="mailto:#" class="hover-green">
+                                    <i class="far fa-envelope"></i>
+                                    Support@posthemes.com
+                                </a>
+                            </div>
+                            <div class="section-top text-center">
+                                <a href="#" class="hover-green">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    Store Locator
+                                </a>
+                            </div>
+                            <div class="section-top text-center">
+                                <a class="" href="/dg/see">
+                                    <i class="icon-heart"></i>
+                                    <span class="txt_wishlist">Wishlist</span>
+                                    <span class="cart-wishlist-number">0</span>
+                                </a>
+                            </div>
+                            <div class="dropdown-mobile mt-4">
+                                <div class="dropdown-label hover-green
+                                            section-menu-mobile">
+                                    <span> USD $</span>
+                                    <i class="fas fa-angle-down
+                                                float-end"></i>
+                                </div>
+                                <div class="show-menu">
+                                    <ul>
+                                        <li class="hover-green
+                                                    section-menu-mobile">
+                                            <a href="#">USD $</a>
+                                        </li>
+                                        <li class="hover-green
+                                                    section-menu-mobile">
+                                            <a href="#">EUR €</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="dropdown-mobile">
+                                <div class="dropdown-label hover-green
+                                            section-menu-mobile">
+                                    <img src="/image/img_language/1.jpg" alt="English" />
+                                    <span> English</span>
+                                    <i class="fas fa-angle-down
+                                                float-end"></i>
+                                </div>
+                                <div class="show-menu">
+                                    <ul>
+                                        <li class="section-menu-mobile">
+                                            <a href="#">
+                                                <img src="/image/img_language/1.jpg" alt="English" />
+                                                English
+                                            </a>
+                                        </li>
+                                        <li class="section-menu-mobile">
+                                            <a href="#">
+                                                <img src="/image/img_language/3.jpg" alt="Français" />
+                                                Français
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="section-menu-mobile close-menu">
+                                MENU <i class="fas fa-arrow-left
+                                            float-end"></i>
+                            </div>
+                            <div class="section-menu-mobile">
+                                <a href="/" class="text-dark fw-bold">Home</a>
+                            </div>
+                            <div class="dropdown-mobile">
+                                <div class="dropdown-label hover-green
+                                            section-menu-mobile">
+                                    <a href="#" class="text-dark
+                                                fw-bold">Fruits</a>
+                                    <i class="fas fa-plus float-end"></i>
+                                </div>
+                                <div class="show-menu">
+                                    <ul>
+                                        <li class="section-menu-mobile">
+                                            <a href="#"> Laura Mercier</a>
+                                        </li>
+                                        <li class="section-menu-mobile">
+                                            <a href="#"> Nutrition</a>
+                                        </li>
+                                        <li class="section-menu-mobile">
+                                            <a href="#"> Full Miu</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="dropdown-mobile">
+                                <div class="dropdown-label hover-green
+                                            section-menu-mobile">
+                                    <a href="#" class="text-dark
+                                                fw-bold">Salads</a>
+                                    <i class="fas fa-plus float-end"></i>
+                                </div>
+                                <div class="show-menu">
+                                    <ul>
+                                        <li class="section-menu-mobile">
+                                            <a href="#"> Laura Mercier</a>
+                                        </li>
+                                        <li class="section-menu-mobile">
+                                            <a href="#"> Nutrition</a>
+                                        </li>
+                                        <li class="section-menu-mobile">
+                                            <a href="#"> Full Miu</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="dropdown-mobile">
+                                <div class="dropdown-label hover-green
+                                            section-menu-mobile">
+                                    <a href="#" class="text-dark
+                                                fw-bold">Fish & Seafood</a>
+                                    <i class="fas fa-plus float-end"></i>
+                                </div>
+                                <div class="show-menu">
+                                    <ul>
+                                        <li class="section-menu-mobile">
+                                            <a href="#"> Laura Mercier</a>
+                                        </li>
+                                        <li class="section-menu-mobile">
+                                            <a href="#"> Nutrition</a>
+                                        </li>
+                                        <li class="section-menu-mobile">
+                                            <a href="#"> Full Miu</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="section-menu-mobile">
+                                <a href="/carts/courses" class="text-dark fw-bold">My cart</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="logo-home col-xl-2 col-6 text-center
+                            me-auto">
+                    <a href="/">
+                        <img src="/image/jena-4-responsive-prestashop-theme-logo-15556451474.jpg" alt="logo-home"
+                            class="img-fluid" />
+                    </a>
+                </div>
+                <div class="mobile-shopping-cart
+                            shopping-cart
+                            col-3
+                            d-block d-xl-none
+                            text-end">
+                    <a href="carts/courses" class="hover-green">
+                        <i class="far fa-user">{{#if quantity}}({{{quantity}}}){{else}}(0){{/if}}</i>
+                    </a>
+                    <a href="carts/courses" class="hover-green">
+                        <i class="fas fa-cart-arrow-down">{{#if quantity}}({{{quantity}}}){{else}}(0){{/if}}</i>
+                    </a>
+                </div>
+                <div class="col-xl-6 col-lg-7 d-none d-xl-block">
+                    <ul class="menu-content">
+                        <li>
+                            <a href="/">Home</a>
+                        </li>
+                        {{#if role}}
+                        <li class="submenu-content">
+                            <a href="#">Store<i class="fas
+                                            fa-angle-down"></i></a>
+                            <div class="submenu-show">
+                                <ul class="catogory-menu">
+                                    <li class="catogory-menu-heading">
+                                        <a href="/courses/create">Add products</a>
+                                    </li>
+                                    <li class="catogory-menu-row">
+                                        <a href="#">Bananas</a>
+                                    </li>
+                                    <li class="catogory-menu-row">
+                                        <a href="#">Apples & Pears</a>
+                                    </li>
+                                    <li class="catogory-menu-row">
+                                        <a href="#">Berries & Cherries</a>
+                                    </li>
+                                    <li class="catogory-menu-row">
+                                        <a href="#">Oranges & Citrus
+                                            Fruit</a>
+                                    </li>
+                                    <li class="catogory-menu-row">
+                                        <a href="#">Grapes</a>
+                                    </li>
+                                </ul>
+                                <ul class="catogory-menu">
+                                    <li class="catogory-menu-heading">
+                                        <a href="/me/stored/courses">My store</a>
+                                    </li>
+                                    <li class="catogory-menu-row">
+                                        <a href="#">Potatoes</a>
+                                    </li>
+                                    <li class="catogory-menu-row">
+                                        <a href="#">Sweet Potatoes</a>
+                                    </li>
+                                    <li class="catogory-menu-row">
+                                        <a href="#">Onions & Leeks</a>
+                                    </li>
+                                    <li class="catogory-menu-row">
+                                        <a href="#">Root Vegetables</a>
+                                    </li>
+                                    <li class="catogory-menu-row">
+                                        <a href="#">Broccoli &
+                                            Cauliflower</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="submenu-content">
+                            <a href="/users/list">Users</a>
+                        {{else}}
+                        <li class="submenu-content">
+                            <a href="#">Salads <i class="fas
+                                        fa-angle-down"></i></a>
+                            <div class="submenu-show">
+                                <ul class="catogory-menu">
+                                    <li class="catogory-menu-heading">
+                                        <a href="#">Salmon</a>
+                                    </li>
+                                    <li class="catogory-menu-row">
+                                        <a href="#">Fresh Salad</a>
+                                    </li>
+                                    <li class="catogory-menu-row">
+                                        <a href="#">Salad bags</a>
+                                    </li>
+                                    <li class="catogory-menu-row">
+                                        <a href="#">Celery</a>
+                                    </li>
+                                    <li class="catogory-menu-row">
+                                        <a href="#">Peppers</a>
+                                    </li>
+                                </ul>
+                                <ul class="catogory-menu">
+                                    <li class="catogory-menu-heading">
+                                        <a href="#">Sea Fish</a>
+                                    </li>
+                                    <li class="catogory-menu-row">
+                                        <a href="#">Milk</a>
+                                    </li>
+                                    <li class="catogory-menu-row">
+                                        <a href="#">Square Beds</a>
+                                    </li>
+                                    <li class="catogory-menu-row">
+                                        <a href="#">Flat sandals</a>
+                                    </li>
+                                    <li class="catogory-menu-row">
+                                        <a href="#">Round Beds</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="submenu-content">
+                            <a href="#">Fish & Seafood <i class="fas
+                                        fa-angle-down"></i></a>
+                            <div class="submenu-show">
+                                <ul class="catogory-menu">
+                                    <li class="catogory-menu-heading">
+                                        <a href="#">Seafood</a>
+                                    </li>
+                                    <li class="catogory-menu-row">
+                                        <a href="#">Nutrition</a>
+                                    </li>
+                                    <li class="catogory-menu-row">
+                                        <a href="#">Burger</a>
+                                    </li>
+                                    <li class="catogory-menu-row">
+                                        <a href="#">Pizza</a>
+                                    </li>
+                                    <li class="catogory-menu-row">
+                                        <a href="#">Collar Leash Sets</a>
+                                    </li>
+                                </ul>
+                                <ul class="catogory-menu">
+                                    <li class="catogory-menu-heading">
+                                        <a href="#">Sea Fish</a>
+                                    </li>
+                                    <li class="catogory-menu-row">
+                                        <a href="#">Milk</a>
+                                    </li>
+                                    <li class="catogory-menu-row">
+                                        <a href="#">Square Beds</a>
+                                    </li>
+                                    <li class="catogory-menu-row">
+                                        <a href="#">Flat sandals</a>
+                                    </li>
+                                    <li class="catogory-menu-row">
+                                        <a href="#">Round Beds</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                        {{/if}}
+                        {{#if auth}}
+                        <li>
+                            <a href="/payment/orderCart">My orders</a>
+                        </li>
+                        {{/if}}
+                    </ul>
+                </div>
+                <div class="search-catogory col-12 col-xl-1">
+                    <span class="hover-green d-none d-xl-block">
+                        <i class="fas fa-search"></i>
+                    </span>
+                    {{#each courses}}
+                    <form action="/search" method="post" class="form-search d-block d-xl-none">
+                        <div>
+                            <input name="key" id="key" type="text" placeholder="Search our catalog"
+                                required="required" />
+                            <button type="submit">
+                                <i class="fas fa-search hover-green"></i>
+                            </button>
+                        </div>
+                    </form>
+                    {{/each }}
+                </div>
+                <div class="desktop-wishtlist d-none d-xl-block">
+                    <a href="/dg/see" class="hover-green">
+                        <i class="far fa-heart"> </i>
+                    </a>
+                </div>
+                <div class="col-2 col-xl-1 shopping-cart d-none
+                            d-xl-block">
+                    <a href="/carts/courses" class="hover-green">
+                        <i class="fas fa-cart-arrow-down">{{#if quantity}}({{{quantity}}}){{else}}(0){{/if}}</i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <!-- Slider  -->
+    <div class="slider-show">
+        <div class="sliders">
+            <div class="slider active-slider">
+                <img class="img-fluid" src="/image/slider/a6d9a65cc38f9cf5cb57bd82f97623dce393d4f0_banner1_home4.jpg"
+                    alt="silder banner 1" />
+                <div class="container">
+                    <div class="info-slider">
+                        <h5>100% Organic</h5>
+                        <h2>Live Organic</h2>
+                        <h2>For Live Healthy</h2>
+                        <p>A Great Variety Of Care fully Stored Citruses</p>
+                        <a href="#" class="btn-shop-now bg-green
+                                    rounded-pill">
+                            Shop Now</a>
+                    </div>
+                </div>
+            </div>
+            <div class="slider">
+                <img class="img-fluid" src="/image/slider/49b4c5f36ab7d6dbbddffb6d40b06951d2621668_banner2_home4.jpg"
+                    alt="silder banner 2" />
+                <div class="container">
+                    <div class="info-slider">
+                        <h5>Nature Organic</h5>
+                        <h2>Summer Sale</h2>
+                        <h2>For Live Healthy</h2>
+                        <p>A Great Variety Of Care fully Stored Citruses</p>
+                        <a href="#" class="btn-shop-now bg-green
+                                    rounded-pill">
+                            Shop Now</a>
+                    </div>
+                </div>
+            </div>
+            <div class="slider">
+                <img class="img-fluid" src="/image/slider/116cdd9a49d49c7b21b19d6bd6fd8f4b7005df3d_banner3_home4.jpg"
+                    alt="silder banner 3" />
+                <div class="container">
+                    <div class="info-slider">
+                        <h5>100% Organic</h5>
+                        <h2>Live Organic</h2>
+                        <h2>Up To 70% Off</h2>
+                        <p>Lemons 100% Natural</p>
+                        <a href="#" class="btn-shop-now bg-green
+                                    rounded-pill">
+                            Shop Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="wrap-control">
+            <img class="img-fluid" src="/image/slider/49b4c5f36ab7d6dbbddffb6d40b06951d2621668_banner2_home4.jpg"
+                alt="silder banner 2" />
+            <div class="control-silder">
+                <ul>
+                    <li class="active-slider-btn">1</li>
+                    <li>2</li>
+                    <li>3</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</header>

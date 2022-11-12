@@ -1,0 +1,27 @@
+@import 'variables';
+
+h1{
+    color:$red-color;
+}
+
+.card-course-item{
+    margin-top: 16px;
+}
+
+input[type=file] {
+    width: 100%;
+}
+
+.edit{
+    font-size: 16px;
+    color: rgb(235, 52, 19);
+}
+
+.select-all-options{
+    width: 140px;
+    margin: 0 19px;
+}
+
+.btn-sm{
+    width: 100px;
+}

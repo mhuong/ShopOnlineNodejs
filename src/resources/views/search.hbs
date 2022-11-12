@@ -1,0 +1,38 @@
+<div class="mt-4">
+    <div>
+        <h3>Products found:</h3>
+    </div>
+
+    <div class="mt-1">
+        <div class="row">
+
+            {{#each courses}}
+            <div class="col-sm-6 col-lg-4">
+                <div class="card card-course-item">
+                    <a href="/courses/{{this.slug}}">
+                        <img class="card-img-top" src="/image/produce/{{this.image}}" alt="{{this.name}}">
+                    </a>
+                    <div class="card-body">
+                        <h5 class="card-title">{{this.name}}</h5>
+                        <p class="card-text">{{this.decription}}</p>
+                        <a href="/courses/{{this.slug}}" class="btn btn-primary">See details</a>
+                    </div>
+                </div>
+            </div>
+
+            {{else}}
+            <tr>
+                <td colspan="5" class="text-center">
+                    <h3>No products...!!</h3>
+                    <h3><a href="/">Home</a></h3>
+                </td>
+            </tr>
+
+            {{/each}}
+
+
+
+        </div>
+    </div>
+
+</div>

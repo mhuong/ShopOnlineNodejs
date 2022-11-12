@@ -1,0 +1,571 @@
+<!-- Main Content -->
+<div class="main">
+  <div class="home-banner">
+    <div class="container">
+      <!-- Service Content -->
+      <div class="box-wrap">
+        <div class="row">
+          <div class="col-12 col-sm-6 col-md-3">
+            <div class="box">
+              <div class="icon">
+                <img src="/image/icon-home/icon1_home3.png" alt="icon
+                                            car" class="img-fluid" />
+              </div>
+              <div class="info-box">
+                <h4>Free Shipping</h4>
+                <p>On all orders over $75.00</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-sm-6 col-md-3">
+            <div class="box">
+              <div class="icon">
+                <img src="/image/icon-home/icon2_home3.png" alt="icon
+                                            car" class="img-fluid" />
+              </div>
+              <div class="info-box">
+                <h4>Free Free Returns</h4>
+                <p>Returns are free within 9 days</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-sm-6 col-md-3">
+            <div class="box">
+              <div class="icon">
+                <img src="/image/icon-home/icon3_home3.png" alt="icon
+                                            car" class="img-fluid" />
+              </div>
+              <div class="info-box">
+                <h4>100% Payment Secure</h4>
+                <p>Your payment are safe with us.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-sm-6 col-md-3">
+            <div class="box">
+              <div class="icon">
+                <img src="/image/icon-home/icon1_home3.png" alt="icon
+                                            car" class="img-fluid" />
+              </div>
+              <div class="info-box">
+                <h4>Support 24/7</h4>
+                <p>Contact us 24 hours a day</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="section-content">
+      <h4>Awesome Shop</h4>
+      <h2>Jena Collection</h2>
+      <div class="row">
+        <div class="col-12 col-lg-6 wrap-box-colection">
+          <a href="#">
+            <div class="box-colection">
+              <img src="/image/Collection/img4_home2.jpg" alt="watermelon" />
+            </div>
+          </a>
+        </div>
+        <div class="col-12 col-lg-6">
+          <div class="row">
+            <div class="col-12 col-md-6 wrap-box-colection">
+              <a href="#">
+                <div class="box-colection">
+                  <img src="/image/Collection/img5_home2.jpg" alt="TOi" />
+                </div>
+              </a>
+            </div>
+            <div class="col-12 col-md-6 wrap-box-colection">
+              <a href="#">
+                <div class="box-colection">
+                  <img src="/image/Collection/img6_home2.jpg" alt="TOi" />
+                </div>
+              </a>
+            </div>
+            <div class="col-12 col-md-6 wrap-box-colection">
+              <a href="#">
+                <div class="box-colection">
+                  <img src="/image/Collection/img7_home2.jpg" alt="TOi" />
+                </div>
+              </a>
+            </div>
+            <div class="col-12 col-md-6 wrap-box-colection">
+              <a href="#">
+                <div class="box-colection">
+                  <img src="/image/Collection/img8_home2.jpg" alt="TOi" />
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Hiện thị sản phầm phân trang 2-4 -->
+  <div class="section-content">
+    <h4>Awesome Shop</h4>
+    <h2>Our Products</h2>
+    <div class="container">
+      <div class="row">
+        <div class="tab-produce-list">
+          <ul>
+            <li class="text-center">
+              <img src="/image/img_icon_produce_list/40-0_thumb.jpg" alt="img icon produce list" class="img-fluid" />
+              <span class="hover-green">Laura Mercier</span>
+            </li>
+            <li class="text-center">
+              <img src="/image/img_icon_produce_list/41-0_thumb.jpg" alt="img icon produce list" class="img-fluid" />
+              <span class="hover-green">Nutrition</span>
+            </li>
+            <li class="text-center">
+              <img src="/image/img_icon_produce_list/95-0_thumb.jpg" alt="img icon produce list" class="img-fluid" />
+              <span class="hover-green">Full Miu</span>
+            </li>
+            <li class="text-center">
+              <img src="/image/img_icon_produce_list/52-0_thumb.jpg" alt="img icon produce list" class="img-fluid" />
+              <span class="hover-green">Salmon</span>
+            </li>
+          </ul>
+
+          <div class="produce-category-slide">
+            <div class="owl-carousel owl-theme
+                                    produce-category">
+
+              {{#each courses}}
+              <div class="item">
+                <div class="item-product">
+
+                  <div class="block-product">
+
+                    <span class="mark-product new">
+                      NEW </span>
+                    <a href="/courses/{{this.slug}}">
+                      <img class="card-img-top" src="/image/produce/{{this.image}}" alt="{{this.name}}"
+                        class="second-img img-fluid">
+                    </a>
+                    <div class="product-info">
+                      <h4>
+                        <a href="/courses/{{this.slug}}" class="name
+                                                            hover-green">
+                          {{this.name}}
+                        </a>
+                      </h4>
+                      <span class="price"><span class="root-price
+                                                            text-decoration-line-through
+                                                            text-black-50"></span>
+                        {{this.price}}$
+                      </span>
+                      <div class="add-cart">
+                        <a href="/courses/{{this.slug}}" class="hover-green
+                                                            btn-add-cart">
+                          See details
+                        </a>
+                        <a href="/dg/see" title="Evaluate">
+                          <i class="far
+                                                                fa-heart
+                                                                float-end
+                                                                hover-green"></i>
+                        </a>
+                        <a href="#" title="Add
+                                                            to wishlist">
+                          <i class="far fa-eye
+                                                                float-end
+                                                                hover-green"></i>
+                        </a>
+                      </div>
+                    </div>
+
+                  </div>
+
+                </div>
+              </div>
+              {{/each }}
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-content">
+    <div class="container">
+      <div class="row">
+        <div class="tab-produce-list">
+
+          <div class="produce-category-slide">
+            <div class="owl-carousel owl-theme
+                                    produce-category">
+
+              {{#each courses}}
+              <div class="item">
+                <div class="item-product">
+
+                  <div class="block-product">
+
+                    <span class="mark-product new">
+                      NEW </span>
+                    <a href="/courses/{{this.slug}}">
+                      <img class="card-img-top" src="/image/produce/{{this.image}}" alt="{{this.name}}"
+                        class="second-img img-fluid">
+                    </a>
+                    <div class="product-info">
+                      <h4>
+                        <a href="/courses/{{this.slug}}" class="name
+                                                            hover-green">
+                          {{this.name}}
+                        </a>
+                      </h4>
+                      <span class="price"><span class="root-price
+                                                            text-decoration-line-through
+                                                            text-black-50"></span>
+                        {{this.price}}$
+                      </span>
+                      <div class="add-cart">
+                        <a href="/courses/{{this.slug}}" class="hover-green
+                                                            btn-add-cart">
+                          See details
+                        </a>
+                        <a href="/dg/see" title="Evaluate">
+                          <i class="far
+                                                                fa-heart
+                                                                float-end
+                                                                hover-green"></i>
+                        </a>
+                        <a href="#" title="Add
+                                                            to wishlist">
+                          <i class="far fa-eye
+                                                                float-end
+                                                                hover-green"></i>
+                        </a>
+                      </div>
+                    </div>
+
+                  </div>
+
+                </div>
+              </div>
+              {{/each }}
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  {{!phụ họa}}
+  <div class="section-content">
+            <h4>Awesome Shop</h4>
+            <h2>bestsellers</h2>
+            <div class="container">
+                <div class="owl-carousel owl-theme slide-hot-category">
+                    <div class="item">
+                        <div class="list-categories">
+                            <div class="img-category">
+                                <img src="/image/Category/f4283e9325811e58e6633ffd8ca37838fb152f6a_list3.jpg"
+                                    alt="Category" class="img-fluid" />
+                            </div>
+                            <div class="list-categories-info">
+                                <h5>Full Miu</h5>
+                                <div class="sub">
+                                    <a href="/">Cabbages & Greens</a>
+                                    <a href="/">Lettuce & Salad bags</a>
+                                    <a href="/">Tomatoes</a>
+                                    <a href="/">Cucumber</a>
+                                </div>
+                                <a href="/" class="view-all">View All</a>
+                            </div>
+                        </div>
+                        <div class="list-categories">
+                            <div class="img-category">
+                                <img src="/image/Category/75652aa05e8e927745bac87586c549da461ffb83_list4.jpg"
+                                    alt="Category" class="img-fluid" />
+                            </div>
+                            <div class="list-categories-info">
+                                <h5>Salmon</h5>
+                                <div class="sub">
+                                    <a href="/">Fresh Salad</a>
+                                    <a href="/">Salad bags</a>
+                                    <a href="/">Celery</a>
+                                    <a href="/">Peppers</a>
+                                </div>
+                                <a href="/" class="view-all">View All</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="list-categories">
+                            <div class="img-category">
+                                <img src="/image/Category/fd40c4587bdd60253d224ec0331af993ce3185fb_list5.jpg"
+                                    alt="Category" class="img-fluid" />
+                            </div>
+                            <div class="list-categories-info">
+                                <h5>Sea Fish</h5>
+                                <div class="sub">
+                                    <a href="/">Milk</a>
+                                    <a href="/">Square Beds</a>
+                                    <a href="/">Round Beds</a>
+                                    <a href="/">Flat sandals</a>
+                                </div>
+                                <a href="/" class="view-all">View All</a>
+                            </div>
+                        </div>
+                        <div class="list-categories">
+                            <div class="img-category">
+                                <img src="/image/Category/92caa5553a5063f38c109490159d5b32363daae0_list6.jpg"
+                                    alt="Category" class="img-fluid" />
+                            </div>
+                            <div class="list-categories-info">
+                                <h5>Trousers</h5>
+                                <div class="sub">
+                                    <a href="/">Pet food</a>
+                                    <a href="/">Hawaiian Pizza </a>
+                                    <a href="/">Cheesecake</a>
+                                    <a href="/">Carrot Cake</a>
+                                </div>
+                                <a href="/" class="view-all">View All</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="list-categories">
+                            <div class="img-category">
+                                <img src="/image/Category/786c38a9066aa55a4c584b6b6308eea7fc0f2f3d_list.jpg"
+                                    alt="Category" class="img-fluid" />
+                            </div>
+                            <div class="list-categories-info">
+                                <h5>Laura Mercier</h5>
+                                <div class="sub">
+                                    <a href="/">Bananas</a>
+                                    <a href="/">Apples & Pears</a>
+                                    <a href="/">Berries & Cherries</a>
+                                    <a href="/">Oranges & Citrus Fruit</a>
+                                </div>
+                                <a href="/" class="view-all">View All</a>
+                            </div>
+                        </div>
+                        <div class="list-categories">
+                            <div class="img-category">
+                                <img src="/image/Category/1ef918a8a7f63fbd6717099c2e3de32d1320ee2a_list2.jpg"
+                                    alt="Category" class="img-fluid" />
+                            </div>
+                            <div class="list-categories-info">
+                                <h5>Nutrition</h5>
+                                <div class="sub">
+                                    <a href="/">Potatoes</a>
+                                    <a href="/">Sweet Potatoes</a>
+                                    <a href="/">Onions & Leeks</a>
+                                    <a href="/">Root Vegetables</a>
+                                </div>
+                                <a href="/" class="view-all">View All</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="list-categories">
+                            <div class="img-category">
+                                <img src="/image/Category/f4283e9325811e58e6633ffd8ca37838fb152f6a_list3.jpg"
+                                    alt="Category" class="img-fluid" />
+                            </div>
+                            <div class="list-categories-info">
+                                <h5>Full Miu</h5>
+                                <div class="sub">
+                                    <a href="/">Cabbages & Greens</a>
+                                    <a href="/">Lettuce & Salad bags</a>
+                                    <a href="/">Tomatoes</a>
+                                    <a href="/">Cucumber</a>
+                                </div>
+                                <a href="/" class="view-all">View All</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+  <!-- logo tỏi -->
+  <div class="section-content pos-logo">
+    <div class="container">
+      <div class="owl-carousel owl-theme logo-slider">
+        <div class="item">
+          <a href="/">
+            <img src="/image/logo/1.jpg" alt="Logo" />
+          </a>
+        </div>
+        <div class="item">
+          <a href="/">
+            <img src="/image/logo/2.jpg" alt="Logo" />
+          </a>
+        </div>
+        <div class="item">
+          <a href="/">
+            <img src="/image/logo/3.jpg" alt="Logo" />
+          </a>
+        </div>
+        <div class="item">
+          <a href="/">
+            <img src="/image/logo/4.jpg" alt="Logo" />
+          </a>
+        </div>
+        <div class="item">
+          <a href="/">
+            <img src="/image/logo/5.jpg" alt="Logo" />
+          </a>
+        </div>
+        <div class="item">
+          <a href="/">
+            <img src="/image/logo/6.jpg" alt="Logo" />
+          </a>
+        </div>
+        <div class="item">
+          <a href="/">
+            <img src="/image/Logo/7.jpg" alt="Logo" />
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- home section ends -->
+
+  <!-- features section starts  -->
+
+  <div class="mt-1">
+    <div class="row">
+
+      {{#each courses}}
+      <div class="col-sm-6 col-lg-4">
+        <div class="card card-course-item">
+          <a href="/courses/{{this.slug}}">
+            <img class="card-img-top" src="/image/produce/{{this.image}}" alt="{{this.name}}">
+          </a>
+          <div class="card-body">
+            <h5 class="card-title">{{this.name}}</h5>
+            <p class="card-text">{{this.decription}}</p>
+            <a href="/courses/{{this.slug}}" class="btn btn-primary">See details</a>
+
+
+          </div>
+        </div>
+      </div>
+      {{/each}}
+
+    </div>
+  </div>
+
+  <div class="section-content">
+    <h4>Awesome Shop</h4>
+    <h2>Our Products</h2>
+    <div class="container">
+      <div class="row">
+        <div class="tab-produce-list">
+          <ul>
+            <li class="text-center">
+              <img src="/image/img_icon_produce_list/40-0_thumb.jpg" alt="img icon produce list" class="img-fluid" />
+              <span class="hover-green">Laura Mercier</span>
+            </li>
+            <li class="text-center">
+              <img src="/image/img_icon_produce_list/41-0_thumb.jpg" alt="img icon produce list" class="img-fluid" />
+              <span class="hover-green">Nutrition</span>
+            </li>
+            <li class="text-center">
+              <img src="/image/img_icon_produce_list/95-0_thumb.jpg" alt="img icon produce list" class="img-fluid" />
+              <span class="hover-green">Full Miu</span>
+            </li>
+            <li class="text-center">
+              <img src="/image/img_icon_produce_list/52-0_thumb.jpg" alt="img icon produce list" class="img-fluid" />
+              <span class="hover-green">Salmon</span>
+            </li>
+          </ul>
+
+          <div class="produce-category-slide">
+            <div class="owl-carousel owl-theme
+                                    produce-category">
+
+              {{#each courses}}
+              <div class="item">
+                <div class="item-product">
+
+                  <div class="block-product">
+
+                    <span class="mark-product new">
+                      NEW </span>
+                    <a href="/courses/{{this.slug}}">
+                      <img class="card-img-top" src="/image/produce/{{this.image}}" alt="{{this.name}}"
+                        class="second-img img-fluid">
+                    </a>
+                    <div class="product-info">
+                      <h4>
+                        <a href="/courses/{{this.slug}}" class="name
+                                                            hover-green">
+                          {{this.name}}
+                        </a>
+                      </h4>
+                      <span class="price"><span class="root-price
+                                                            text-decoration-line-through
+                                                            text-black-50"></span>
+                        {{this.price}}$
+                      </span>
+                      <div class="add-cart">
+                        <a href="/courses/{{this.slug}}" class="hover-green
+                                                            btn-add-cart">
+                          See details
+                        </a>
+                        <a href="/dg/see" title="Evaluate">
+                          <i class="far
+                                                                fa-heart
+                                                                float-end
+                                                                hover-green"></i>
+                        </a>
+                        <a href="#" title="Add
+                                                            to wishlist">
+                          <i class="far fa-eye
+                                                                float-end
+                                                                hover-green"></i>
+                        </a>
+                      </div>
+                    </div>
+
+                  </div>
+
+                </div>
+              </div>
+              {{/each }}
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-content instagram-content">
+    <div class="owl-carousel owl-theme slide-instagram">
+      <div class="item">
+        <a href="#"><img src="/image/img_intragram/1.jpg" alt="Instagram" class="img-fluid" /></a>
+      </div>
+      <div class="item">
+        <a href="#"><img src="/image/img_intragram/2.jpg" alt="Instagram" class="img-fluid" /></a>
+      </div>
+      <div class="item">
+        <a href="#"><img src="/image/img_intragram/3.jpg" alt="Instagram" class="img-fluid" /></a>
+      </div>
+      <div class="item">
+        <a href="#"><img src="/image/img_intragram/4.jpg" alt="Instagram" class="img-fluid" /></a>
+      </div>
+      <div class="item">
+        <a href="#"><img src="/image/img_intragram/5.jpg" alt="Instagram" class="img-fluid" /></a>
+      </div>
+      <div class="item">
+        <a href="#"><img src="/image/img_intragram/6.jpg" alt="Instagram" class="img-fluid" /></a>
+      </div>
+    </div>
+  </div>
+  <div class="back-top" title="Go to top" onclick="topFunction()" id="myBtn"><i class="fas fa-arrow-up"></i></div>
+</div>
+
+</div>

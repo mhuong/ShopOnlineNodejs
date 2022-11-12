@@ -1,0 +1,35 @@
+<div class="mt-4">
+  <h3>Danh sách đánh giá của tôi.</h3>
+  <a href="/">Home</a>
+  <table class="table mt-4">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Tên người dùng:</th>
+        <th scope="col">Mô tả:</th>
+        <th scope="col">Thời pricen:</th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each dgs}}
+      <tr>
+        <th scope="row">{{sum @index 1}}</th>
+        <td>{{this.name}}</td>
+        <td>{{this.description}}</td>
+        <td>{{this.createdAt}}</td>
+      </tr>
+      {{else}}
+      <tr>
+        <td colspan="5" class="text-center">
+         Chưa có đánh giá nào
+          <a href="/danhgia/create">Thêm đánh giá</a>
+        </td>
+      </tr>
+      {{/each}}
+    </tbody>
+  </table>
+</div>
+
+
+

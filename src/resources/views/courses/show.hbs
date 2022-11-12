@@ -1,0 +1,169 @@
+<div class="product-detail">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="slider-zoom">
+                    <a href="/image/produce/{{course.image}}" class="cloud-zoom"
+                        rel="transparentImage: 'data:image/gif;base64,R0lGODlhAQABAID/AMDAwAAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==', useWrapper: false, showTitle: false, zoomWidth:'500', zoomHeight:'500', adjustY:0, adjustX:10"
+                        id="cloudZoom">
+                        <img alt="Detail Zoom thumbs image" src="/image/produce/{{course.image}}" style="width: 100%;">
+                    </a>
+                </div>
+
+                <div class="slider-thumbnail">
+                    <ul class="d-flex flex-wrap p-0 list-unstyled">
+                        <li>
+                            <a href="/image/produce/{{course.image}}"
+                                rel="gallerySwitchOnMouseOver: true, popupWin:'public/img/meats.jpg', useZoom: 'cloudZoom', smallImage: 'public/img/meats.jpg'"
+                                class="cloud-zoom-gallery">
+                                <img itemprop="image" src="/image/produce/{{course.image}}" style="width:135px;">
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/image/produce/{{course.image}}"
+                                rel="gallerySwitchOnMouseOver: true, popupWin:'public/img/fish.jpg', useZoom: 'cloudZoom', smallImage: 'public/img/fish.jpg'"
+                                class="cloud-zoom-gallery">
+                                <img itemprop="image" src="/image/produce/{{course.image}}" style="width:135px;">
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/image/produce/{{course.image}}"
+                                rel="gallerySwitchOnMouseOver: true, popupWin:'public/img/vegetables.jpg', useZoom: 'cloudZoom', smallImage: 'public/img/vegetables.jpg'"
+                                class="cloud-zoom-gallery">
+                                <img itemprop="image" src="/image/produce/{{course.image}}" style="width:135px;">
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <li>
+                        <a class="reviews" href="/dg/create">product reviews</a>
+                    </li>
+                    <li>
+                        <a class="reviews" href="/dg/see">see reviews</a>
+                    </li>
+                </div>
+
+            </div>
+            <div class="col-sm-6">
+                <p>
+                    <strong>Overview</strong><br>
+                    {{course.decription}}
+                </p>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <p>
+                            <strong>Price</strong> (/{{course.name}})<br>
+                            <span class="price">Rp {{course.gia}}$</span>
+                            <span class="old-price">Rp 500.000</span>
+                        </p>
+                    </div>
+                    <div class="col-sm-6 text-right">
+                        <p>
+                            <span class="stock available">In Stock: 99</span>
+                        </p>
+                    </div>
+                </div>
+                <p class="mb-1">
+                    <strong>Quantity</strong>
+                </p>
+                {{!-- add buy hidden form --}}
+                    <div class="row">
+                        <div class="col-sm-6"><span class="pt-1 d-inline-block">{{course.name}} (1000 gram)</span></div>
+                    </div>
+                    <button class="mt-3 btn btn-primary btn-lg" data-toggle="modal" data-id="{{course._id}}"
+                        data-target="#add-buy-modal">
+                        <img src="/image/icon-home/icon1_home3.png"> Buy now
+                    </button>
+                <button class="mt-3 btn btn-primary btn-lg" data-toggle="modal" data-id="{{course._id}}"
+                    data-target="#add-course-modal">
+                    <i class="fa fa-shopping-basket"></i> Add to Cart
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+{{!-- Confirm add cart --}}
+<div id="add-course-modal" class="modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Add courses cart?</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>Want to add products to your cart?</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                <button id="btn-add-course" type="button" class="btn btn-danger">Add</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+{{!-- Confirm add buy --}}
+<div id="add-buy-modal" class="modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Do you want to buy this product?</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>Do you want to buy this product?</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                <button id="btn-add-buy" type="button" class="btn btn-danger">Buy</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+{{!-- add cart hidden form --}}
+<form name="add-course-form" method="POST"></form>
+
+{{!-- add buy hidden form --}}
+<form name="add-buy-form" method="GET"></form>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var courseId;
+        var addForm = document.forms['add-course-form'];
+        var btnAddCourse = document.getElementById('btn-add-course');
+        // When dialog confirm clicked
+        $('#add-course-modal').on('show.bs.modal', function (event) {
+            var button = $(event.relatedTarget);
+            courseId = button.data('id');
+            console.log(courseId);
+        });
+        console.log($('#add-course-modal'));
+        // When delete course btn clicked
+        btnAddCourse.onclick = function () {
+            addForm.action = '/carts/' + courseId + '?_method=POST';
+            addForm.submit();
+        }
+
+        //add buy nows
+        var buyID;
+        var addBuyForm = document.forms['add-buy-form'];
+        var btnAddBuy = document.getElementById('btn-add-buy');
+        // When dialog confirm clicked
+        $('#add-buy-modal').on('show.bs.modal', function (event) {
+            var button = $(event.relatedTarget);
+            buyID = button.data('id');
+            console.log(buyID);
+        });
+        console.log($('#add-buy-modal'));
+        // When delete course btn clicked
+        btnAddBuy.onclick = function () {
+            addBuyForm.action = '/payment/buynows/' + buyID + '?_method=GET';
+            addBuyForm.submit();
+        }
+    });
+</script>

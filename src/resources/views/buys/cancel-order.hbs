@@ -1,0 +1,183 @@
+<form name="container-form" class="mt-4" method="post" action="/payment/handle-form-delete-actions">
+    <div>
+        <a href="/payment/orderCart">Order tables</a>
+        <h3>Cancel order</h3>
+
+        <div class="mt-4 d-flex align-items-center">
+            <div class="form-check">
+                <input type="checkbox" class="form-check-input" id="checkbox-all">
+                <label class="form-check-label" for="checkbox-all">Check all</label>
+            </div>
+
+            <select class="form-control form-control-sm select-all-options" name="action" required>
+                <option value="">--- Hanh dong ---</option>
+                <option value="delete">Delete</option>
+                <option value="restore">Restore</option>
+            </select>
+
+            <button type="submit" class="btn btn-primary btn-sm check-all-submit-btn disabled">Apply</button>
+        </div>
+    </div>
+
+    <table class="table mt-4">
+        <thead>
+            <tr>
+                <th></th>
+                <th scope="col">#</th>
+                <th scope="col">
+                    Name:
+                    {{{sortable 'name' _sort}}}
+                </th>
+                <th scope="col">address:</th>
+                <th scope="col">email:</th>
+                <th scope="col">phone:</th>
+                <th scope="col">products:</th>
+                <th scope="col">ordertotal:</th>
+                <th scope="col" colspan="2">Deletion time</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each ordertables}}
+            <tr>
+                <th>
+                    <div class="form-check">
+                        <input name="courseIds[]" type="checkbox" class="form-check-input" value="{{this._id}}">
+                    </div>
+                </th>
+                <th scope="row">{{sum @index 1}}</th>
+                <td>{{this.name}}</td>
+                <td>{{this.address}}</td>
+                <td>{{this.email}}</td>
+                <td>{{this.phone}}</td>
+                <td>{{this.products}}</td>
+                <td>{{this.ordertotal}}</td>
+                <td>{{this.deletedAt}}</td>
+                <td>
+                    <a href="" class="btn btn-link btn-restore edit" data-id="{{this._id}}">set again</a>
+                    <a href="" class="btn btn-link edit" data-toggle="modal" data-id="{{this._id}}"
+                        data-target="#delete-cancelbuy-modal">Delete</a>
+                </td>
+            </tr>
+            {{else}}
+            <tr>
+                <td colspan="5" class="text-center">
+                    No canceled orders.
+                    <a href="/payment/orderCart">Order tables</a>
+                </td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+</form>
+
+{{!-- Confirm delete course --}}
+<div id="delete-cancelbuy-modal" class="modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Are you sure you want to delete?</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>This action of yours cannot be undone, you still want to delete?</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Back</button>
+                <button id="btn-delete-cancelbuy" type="button" class="btn btn-danger">permanently deleted</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<form name="delete-cancelbuy-form" method="POST"></form>
+
+
+<form name="restore-course-form" method="POST"></form>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var courseId;
+        var deleteForm = document.forms['delete-cancelbuy-form'];
+        var restoreForm = document.forms['restore-course-form'];
+        var btnDeleteCourse = document.getElementById('btn-delete-cancelbuy');
+        var restoreBtn = $('.btn-restore');
+
+        //check
+        var checkboxAll = $('#checkbox-all');
+        var courseItemCheckbox = $('input[name="courseIds[]"]');
+        var checkAllSubmitBtn = $('.check-all-submit-btn');
+        var containerForm = document.forms['container-form'];
+        // When dialog confirm clicked
+        $('#delete-cancelbuy-modal').on('show.bs.modal', function (event) {
+            var button = $(event.relatedTarget);
+            courseId = button.data('id');
+        });
+
+        // When delete course btn clicked
+        btnDeleteCourse.onclick = function () {
+            deleteForm.action = '/payment/cancel/' + courseId + '/force?_method=DELETE';
+            deleteForm.submit();
+        }
+        // Restore btn clicked
+        restoreBtn.click(function (e) {
+            e.preventDefault();
+
+            var courseId = $(this).data('id');
+            restoreForm.action = '/payment/' + courseId + '/restore?_method=PATCH';
+            restoreForm.submit();
+        });
+
+        ///////
+        checkboxAll.change(function () {
+            var isCheckAll = $(this).prop('checked');
+            courseItemCheckbox.prop('checked', isCheckAll);
+            renderCheckAllSubmitbtn();
+        });
+
+        courseItemCheckbox.change(function () {
+            var isCheckAll = courseItemCheckbox.length === $('input[name="courseIds[]"]:checked').length;
+            checkboxAll.prop('checked', isCheckAll);
+            renderCheckAllSubmitbtn();
+        });
+
+        //check all submit button
+        /*
+        checkAllSubmitBtn.click(function(e){
+          e.preventDefault();
+    
+          var isSubmitable=!$(this).hasClass('disabled');
+    
+          if(isSubmitable){
+            containerForm.submit();
+          }
+    
+        });
+        */
+
+        checkAllSubmitBtn.on('submit', function (e) {
+            var isSubmitable = !$(this).hasClass('disabled');
+            if (!isSubmitable) {
+                e.preventDefault();
+            }
+        });
+
+        function renderCheckAllSubmitbtn() {
+            var checkedCourse = $('input[name="courseIds[]"]:checked').length;
+            if (checkedCourse > 0) {
+                checkAllSubmitBtn.removeClass('disabled');
+            } else {
+                checkAllSubmitBtn.addClass('disabled');
+            }
+        }
+
+        /*
+        if(isCheckAll){
+          courseItemCheckbox.prop('checked',true);
+        }else{
+          courseItemCheckbox.prop('checked',false);
+        }
+        */
+    });
+</script>

@@ -1,0 +1,23 @@
+<div class="container mt-3 ">
+  <h2 class="mt-5 text-center">History</h2>  
+  <table class="table table-bordered table-hover mt-3 text-center">
+    <thead class="table-success text-center">
+      <tr>
+        <th>Products</th>
+        <th>Price</th>
+        <th>Properties</th>
+      </tr>
+    </thead>
+    {{#each courses}}
+    <tbody>
+      <tr>
+        <td>{{this.name}}</td>
+        <td>{{this.gia}}</td>
+        <td class="text-center">
+          <a type="button" class="btn btn-success" href="/courses/{{this.slug}}">Properties</a>
+        </td>
+      </tr>
+    </tbody>
+    {{/each}}
+  </table>
+</div>

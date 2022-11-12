@@ -1,0 +1,23 @@
+<div class="container mt-3">
+  <h2 class="mt-5">List of users</h2>     
+  <table class="table table-bordered table-hover mt-3">
+    <thead class="table-success text-center">
+      <tr>
+        <th>Username</th>
+        <th>Email</th>
+        <th>Option</th>
+      </tr>
+    </thead>
+    {{#each users}}
+    <tbody>
+      <tr>
+        <td>{{this.username}}</td>
+        <td>{{this.email}}</td>
+        <td class="text-center">
+          <a type="button" class="btn btn-danger" href="/users/remove-user/{{this._id}}">Delete</a>
+        </td>
+      </tr>
+    </tbody>
+    {{/each}}
+  </table>
+</div>

@@ -1,0 +1,135 @@
+<form class="container-form container mt-4 pb-4" method="post" action="/courses/handle-form-actions"
+    style="background-color: white; border-radius:5px;">
+    <div class="pt-4">
+        {{#if cart}}
+        <div class="alert alert-success">
+            {{{status}}}
+        </div>
+        <h2>Cart</h2>
+        <div class="mt-4 d-flex align-items-center">
+            <div class="form-check">
+                <input type="checkbox" class="form-check-input" id="checkbox-all">
+                <label class="form-check-label" for="checkbox-all">Check all</label>
+            </div>
+
+            <select class="form-control form-control-sm select-all-options" name="action" required>
+                <option value="">--- Hanh dong ---</option>
+                <option value="delete">Delete</option>
+                <option value="buy">Buy nows</option>
+            </select>
+
+            <button type="submit" class="btn btn-primary btn-sm check-all-submit-btn disabled">Apply</button>
+        </div>
+        <table class="table mt-4">
+            <tr>
+                <th>Image</th>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th></th>
+                <th>Subtotal</th>
+            </tr>
+            {{#each cart}}
+            <tr>
+                <th>
+                    <div class="form-check">
+                        <input name="courseIds[]" type="checkbox" class="form-check-input" value="{{_id}}">
+                    </div>
+                </th>
+                <td><img src="/image/produce/{{image}}" alt="" style="width:100px; height:100px;"></td>
+                <td>{{name}}</td>
+                <td>{{price}}</td>
+                <td>{{qty}}</td>
+                <td>
+                    <a style="font-size: 24px;" href="/carts/update/{{slug}}?action=add">+ </a>
+                    <a style="font-size: 24px;" href="/carts/update/{{slug}}?action=remove">- </a>
+                </td>
+                <td>{{multiplication price qty}}</td>
+            </tr>
+            {{/each}}
+            <tr>
+                <td colspan="5">
+                    <h3><i>Total:</i></h3>
+                </td>
+                <td>{{{total}}}</td>
+            </tr>
+            <tr>
+                <td colspan="4" align="right"></td>
+                <td colspan="2" align="right">
+                    <a class="clearcart btn btn-danger" href="/carts/clear">Clear cart</a>
+                    <a class="btn btn-primary buynow" href="/payment/buy">Buy now</a>
+                </td>
+            </tr>
+        </table>
+        {{else}}
+        <div class="alert alert-success">
+            {{{status}}}
+        </div>
+        {{/if}}
+    </div>
+</form>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        $('a.clearcart').on('click', function () {
+            if (!confirm('Confirm clear cart')) {
+                return false;
+            }
+        });
+
+        //
+        var checkboxAll = $('#checkbox-all');
+        var courseItemCheckbox = $('input[name="courseIds[]"]');
+        var checkAllSubmitBtn = $('.check-all-submit-btn');
+        var containerForm = document.forms['container-form'];
+
+        checkboxAll.change(function () {
+            var isCheckAll = $(this).prop('checked');
+            courseItemCheckbox.prop('checked', isCheckAll);
+            renderCheckAllSubmitbtn();
+        });
+
+        courseItemCheckbox.change(function () {
+            var isCheckAll = courseItemCheckbox.length === $('input[name="courseIds[]"]:checked').length;
+            checkboxAll.prop('checked', isCheckAll);
+            renderCheckAllSubmitbtn();
+        });
+
+        //check all submit button
+        /*
+        checkAllSubmitBtn.click(function(e){
+          e.preventDefault();
+    
+          var isSubmitable=!$(this).hasClass('disabled');
+    
+          if(isSubmitable){
+            containerForm.submit();
+          }
+    
+        });
+        */
+
+        checkAllSubmitBtn.on('submit', function (e) {
+            var isSubmitable = !$(this).hasClass('disabled');
+            if (!isSubmitable) {
+                e.preventDefault();
+            }
+        });
+
+        function renderCheckAllSubmitbtn() {
+            var checkedCourse = $('input[name="courseIds[]"]:checked').length;
+            if (checkedCourse > 0) {
+                checkAllSubmitBtn.removeClass('disabled');
+            } else {
+                checkAllSubmitBtn.addClass('disabled');
+            }
+        }
+
+        /*
+        if(isCheckAll){
+          courseItemCheckbox.prop('checked',true);
+        }else{
+          courseItemCheckbox.prop('checked',false);
+        }
+        */
+    });
+</script>
