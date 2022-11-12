@@ -1,0 +1,19 @@
+h1 {
+  color: #ce3758; }
+
+.card-course-item {
+  margin-top: 16px; }
+
+input[type=file] {
+  width: 100%; }
+
+.edit {
+  font-size: 16px;
+  color: #eb3413; }
+
+.select-all-options {
+  width: 140px;
+  margin: 0 19px; }
+
+.btn-sm {
+  width: 100px; }
